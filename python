@@ -1,0 +1,26 @@
+import time
+import random
+
+words = ['apple', 'banana', 'cherry', 'date', 'elderberry', 'fig', 'grape', 'honeydew']
+
+def play_game():
+    score = 0
+    while True:
+        target_word = random.choice(words)
+        print(f"Type the word: {target_word}")
+        start_time = time.time()
+        user_input = input()
+        end_time = time.time()
+        
+        if user_input == target_word:
+            time_taken = end_time - start_time
+            score += int(len(target_word) / time_taken * 10)
+            print(f"Correct! Score: {score}")
+        else:
+            print("Incorrect! Game Over")
+            break
+
+if __name__ == "__main__":
+    print("Welcome to the Speed Typer Game!")
+    print("Type the displayed word as fast as you can.")
+    play_game()
